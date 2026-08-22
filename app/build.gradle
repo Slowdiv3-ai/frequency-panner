@@ -25,9 +25,22 @@ android {
         }
     }
     
+    signingConfigs {
+        release {
+            storeFile file("freqpanner.keystore")
+            storePassword "freqpanner123"
+            keyAlias "freqpanner"
+            keyPassword "freqpanner123"
+        }
+    }
+    
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
     
